@@ -18,21 +18,27 @@ public class Task1 {
     public static void main(String[] args) {
         // Solution 1: Via extended Thread class
         Thread hw1 = new HelloWorldThread();
+
         // Solution 2: Via Runnable
-        Runnable hw2 = new HelloWorldRunnable();
-        hw1.start();
-        hw2.run();
+        Runnable runnable = new HelloWorldRunnable();
+        Thread hw2 = new Thread(runnable);
+
         // Solution 3: Via anonymous Runnable
-        new Runnable() {
+        Runnable anonymousRunnable = new Runnable() {
             @Override
             public void run() {
                 System.out.println("Hello World!");
             }
-        }.run();
-        // Solution 4: Via lambda?
-        Runnable lambda = () -> {
-            System.out.println("Hello World!");
         };
-        lambda.run();
+        Thread hw3 = new Thread(anonymousRunnable);
+
+        // Solution 4: Via lambda
+        Thread hw4 = new Thread(() -> System.out.println("Hello World!"));
+
+        // Run them
+        hw1.start();
+        hw2.start();
+        hw3.start();
+        hw4.start();
     }
 }
