@@ -20,5 +20,10 @@ Using the code and explanations given in the lecture:
    - PhysicsSystem
    - AudioSystem
    - GraphicsSystem
-> The GameLogic thread which will just wait until the Subsystem threads finish their startup function before entering the game update loop. Subsystem threads are just threads sleeping for various amounts of time to simulate a complex and diverse initialization phase. The GameLogic thread should display “engine is starting” before the other engines are intialised, and when all subsystem threads are ready, it starts updating the game every 16 ms (e.g. just displaying “tick” on console). Use edu.ncp.utils.LogUtil.Log to print status messages. After 3000 ms, the GameLogic thread is interrupted and ends the game. It gracefully shuts down the subsystems and waits for all subsystem threads to finish before exiting the program.
+> - The GameLogic thread which will just wait until the Subsystem threads finish their startup function before entering the game update loop.
+> - Subsystem threads are just threads sleeping for various amounts of time to simulate a complex and diverse initialization phase.
+> - The GameLogic thread should display “engine is starting” before the other engines are intialised
+> - When all subsystem threads are ready, it starts updating the game every 16 ms (e.g. just displaying “tick” on console). Use edu.ncp.utils.LogUtil.Log to print status messages.
+> - After 3000 ms, the GameLogic thread is interrupted and ends the game.
+> - It gracefully shuts down the subsystems and waits for all subsystem threads to finish before exiting the program.
 
